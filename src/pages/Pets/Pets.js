@@ -74,7 +74,7 @@ const Pets = ({loggedIn}) => {
                             <th></th>
                         </tr>
                     }
-                    {pets.map(pet => (
+                    {pets.map((pet) => (
                             <tr className="border-x-solid border border-sky">
                                 <td className="px-3" >{pet.name}</td>
                                 <td className="px-3">{pet.breed}</td>
