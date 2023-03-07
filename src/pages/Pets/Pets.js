@@ -1,18 +1,26 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate} from "react-router-dom";
 import { apiHost } from "../../Variables";
-import { appContext } from "../../AppContextProvider";
 
 
 const Pets = ({loggedIn}) => {
     const navigate = useNavigate()
     const [pets, setPets] = useState([])
-    const {setPetOnEdit} = useContext(appContext)
 
     useEffect(()=>{
         if(!loggedIn){
             navigate('/home')
         }
+    }, [])
+
+
+    useEffect(()=>{
+        fetch(`${apiHost}/pets`)
+            .then((res) => res.json())
+            .then((pets) => {
+                setPets(pets)
+                console.log(pets)
+            })   
     }, [])
 
     // useEffect(()=>{
