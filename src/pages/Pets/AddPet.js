@@ -24,7 +24,7 @@ const AddPet = () => {
         e.preventDefault();
         console.log(petFormData)
 
-        fetch(`${apiHost}/pets`, {
+        fetch(`https://mkali-pet-finder.onrender.com/pets`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

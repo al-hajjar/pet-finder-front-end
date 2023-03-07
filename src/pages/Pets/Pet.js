@@ -14,7 +14,7 @@ const Pets = ({loggedIn}) => {
     }, [])
 
     useEffect(()=>{
-        fetch(`${apiHost}/pets`)
+        fetch(`https://mkali-pet-finder.onrender.com/pets`)
             .then((res) => res.json())
             .then((pets) => {
                 setPets(pets)
@@ -34,7 +34,7 @@ const Pets = ({loggedIn}) => {
     // }, [])
 
     function handleDelete(deletedPet){
-        fetch(`${apiHost}/pets/${deletedPet.id}`, {method: 'DELETE'})
+        fetch(`https://mkali-pet-finder.onrender.com/pets/${deletedPet.id}`, {method: 'DELETE'})
         .then((res) => {
             if(res.ok){
                 const newPetsList = pets.filter(pet => pet.id !== deletedPet.id)

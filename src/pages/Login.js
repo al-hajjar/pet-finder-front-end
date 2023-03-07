@@ -25,7 +25,7 @@ const Login = ({loggedIn, setLoggedIn}) => {
     function handleForm(e) {
         e.preventDefault();
 
-        fetch(`${apiHost}/login`, {
+        fetch(`https://mkali-pet-finder.onrender.com/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
