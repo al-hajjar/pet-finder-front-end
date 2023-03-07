@@ -1,28 +1,55 @@
 import { useState } from "react";
 import { Link } from "react-router-dom"
 import signupImg from '../assets/signup.png'
+import { apiHost } from "../Variables";
 
-const Signup = () => {
-    const [username, setUsername] = useState("")
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
+const Signup = ({loggedIn, setLoggedIn}) => {
+    const navigate = useNavigate()
+    const [signupFormData, setSignupFormData] = useState(
+        {email: "", username: "", password: ""}
+    )
 
-    const handleForm = (e) => {
+    useEffect(()=>{
+        if(loggedIn){
+            navigate('/pets')
+        }
+    }, [])
+
+    function updateFormData(e){
+        setSignupFormData(
+            signupFormData => ({
+                ...signupFormData,
+                [e.target.id]: e.target.value
+            })
+        )
+    }
+
+    function handleForm(e) {
         e.preventDefault();
-        e.target.reset();
 
-        fetch('/login', {
+        fetch(`${apiHost}/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({username, password})
+            body: JSON.stringify(signupFormData)
         })
-            .then()
-
-        alert("hello")
+        .then(result => {
+            if(result.ok){
+                result.json().then(data => {
+                    localStorage.setItem('loggedIn', true)
+                    localStorage.setItem('user', JSON.stringify(data))
+                    setSignupFormData({email: "", username: "", password: ""})
+                    setLoggedIn(true)
+                    navigate('/pets')
+                })
+            } else {
+                result.json().then(error => console.warn(error))
+            }
+        })
     }
 
+   
     return ( 
         <>
             <div className="flex flex-col justify-center items-center min-h-screen md:mx-16 mx-6">
