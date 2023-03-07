@@ -1,7 +1,8 @@
 import { useState } from "react"
+import { apiHost } from "../../Variables"
 
 const AddPet = () => {
-    const [newPetFormData, setNewPetFormData] = useState(
+    const [newPetFormData, setPetFormData] = useState(
         {
             name: "",
             breed: "",
@@ -12,15 +13,15 @@ const AddPet = () => {
 
     function updateFormData(e){
 
-        setNewPetFormData(newPetFormData => {
-            return {...newPetFormData, [e.target.id]: e.target.value}
+        setPetFormData(petFormData => {
+            return {...petFormData, [e.target.id]: e.target.value}
         })
 
     }
 
     const handleForm = (e) => {
         e.preventDefault();
-        console.log(newPetFormData)
+        console.log(petFormData)
 
         // fetch(`${apiHost}/projects`, {
         //     method: "POST",
