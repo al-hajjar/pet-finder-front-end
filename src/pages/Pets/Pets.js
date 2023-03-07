@@ -47,10 +47,10 @@ const Pets = ({loggedIn}) => {
     }
 
 
-    function handleEdit(petOnEdit){
-        setPetOnEdit(petOnEdit)
-        navigate('/pet-details')
-    }
+    // function handleEdit(petOnEdit){
+    //     setPetOnEdit(petOnEdit)
+    //     navigate('/pet-details')
+    // }
 
     return ( 
         <div className="min-h-screen px-20 py-20">
