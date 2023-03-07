@@ -1,4 +1,4 @@
-const apiHost = "http://localhost:9393"
+const apiHost = "http://localhost:9292"
 
 
 export {apiHost}
