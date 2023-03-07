@@ -19,8 +19,8 @@ function App() {
         <Navbar loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
         <Routes>
           <Route path='/' element={ <Home /> } />
-          <Route path='/addpet' element={ <AddPet /> } />
-          <Route path='/addpet' element={ <Pets loggedIn={loggedIn} /> } />
+          <Route path='/add-pet' element={ <AddPet /> } />
+          <Route path='/pets' element={ <Pets loggedIn={loggedIn} /> } />
           <Route path='/login' element={ <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> } />
           <Route path='/signup' element={ <Signup loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> } />
         </Routes>
