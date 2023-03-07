@@ -15,16 +15,16 @@ const Pets = ({loggedIn}) => {
         }
     }, [])
 
-    useEffect(()=>{
-        fetch(`${apiHost}/${`my-pets/${JSON.parse(localStorage.getItem('user') || false)?.id}`}`)
-            .then((res) => {
-                if(res.ok){
-                    res.json().then(data => setPets(data))
-                } else {
-                    res.json().then(error => console.warn(error))
-                }
-            })    
-    }, [])
+    // useEffect(()=>{
+    //     fetch(`${apiHost}/${`my-pets/${JSON.parse(localStorage.getItem('user') || false)?.id}`}`)
+    //         .then((res) => {
+    //             if(res.ok){
+    //                 res.json().then(data => setPets(data))
+    //             } else {
+    //                 res.json().then(error => console.warn(error))
+    //             }
+    //         })    
+    // }, [])
 
     function handleDelete(deletedPet){
         fetch(`${apiHost}/pets/${deletedPet.id}`, {method: 'DELETE'})
