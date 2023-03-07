@@ -23,29 +23,29 @@ const AddPet = () => {
         e.preventDefault();
         console.log(petFormData)
 
-        // fetch(`${apiHost}/projects`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(newPetFormData)
-        // })
-        // .then(res => {
-        //     if(res.ok){
-        //         res.json().then(data => {
-        //             setNewPetFormData(
-        //                 {
-        //                     name: "",
-        //                     topic: "",
-        //                     details: "",
-        //                     user_id: JSON.parse(localStorage.getItem('user') || false)?.id
-        //                 }
-        //             )
-        //         })
-        //     }else {
-        //         res.json().then(error => console.warn(error))
-        //     }
-        // })
+        fetch(`${apiHost}/projects`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(newPetFormData)
+        })
+        .then(res => {
+            if(res.ok){
+                res.json().then(data => {
+                    setNewPetFormData(
+                        {
+                            name: "",
+                            topic: "",
+                            details: "",
+                            user_id: JSON.parse(localStorage.getItem('user') || false)?.id
+                        }
+                    )
+                })
+            }else {
+                res.json().then(error => console.warn(error))
+            }
+        })
     }
 
     return ( 
