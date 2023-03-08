@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate} from "react-router-dom";
-import { apiHost } from "../../Variables";
+import {  } from "../../Variables";
 
 
 const Pets = ({loggedIn}) => {

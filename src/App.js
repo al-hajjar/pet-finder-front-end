@@ -2,11 +2,13 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
 import './App.css';
 import Footer from './components/Footer';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
+import Navbar from './components/Narbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import AddPet from './pages/Pets/AddPet';
-import Pets from './pages/Pets/Pets';
+// import Pets from './pages/Pets/Pets';
+import Pets from './pages/Pets/Pet';
 import Signup from './pages/Signup';
 
 function App() {

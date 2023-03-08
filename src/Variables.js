@@ -1,4 +1,4 @@
-const apiHost = "http://localhost:9393"
+const apiHost = "https://mkali-pet-finder.onrender.com"
 
 
 export {apiHost}

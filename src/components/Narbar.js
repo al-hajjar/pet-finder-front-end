@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa"
-import { apiHost } from "../Variables";
+
 
 
 const Navbar = ({loggedIn, setLoggedIn}) => {
@@ -11,7 +11,7 @@ const Navbar = ({loggedIn, setLoggedIn}) => {
         localStorage.clear()
         setLoggedIn(false)
         
-        fetch(`${apiHost}/logout`, {method: 'DELETE'})
+        fetch(`https://mkali-pet-finder.onrender.com/logout`, {method: 'DELETE'})
         .then(res => {
             if(!res.ok){
                 res.json().then(error => console.warn(error))
